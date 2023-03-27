@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:nebengyuk/theme.dart';
 
@@ -16,7 +15,7 @@ class _SplashPageState extends State<SplashPage> {
     
     Timer(
       Duration(seconds: 3),
-      () => Navigator.pushNamed(context, '/sign-in'),
+      () => Navigator.pushNamed(context, '/splash'),
     );
 
     super.initState();

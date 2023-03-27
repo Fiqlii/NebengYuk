@@ -1,36 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nebengyuk/theme.dart';
 
-class SignInPage extends StatelessWidget{
+class SignUpPage extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-      Widget header(){
-        return Container(
-          margin: EdgeInsets.only(top: 30),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Login',
-                style: primaryTextStyle.copyWith(
-                  fontSize: 24,
-                  fontWeight: semiBold,
-                ),
-              ),
-              SizedBox(
-                height: 2,
-              ),
-              Text(
-                'Sign in to continue',
-                style: secondaryTextStyle.copyWith(
-                  fontWeight: light,
-                ),
-              ),
-            ],
-          ),
-        );
-      }
-
       Widget Logo(){
         return Container(
           margin: EdgeInsets.only(top: 10),
@@ -51,9 +24,36 @@ class SignInPage extends StatelessWidget{
       );
     }
 
+      Widget header(){
+        return Container(
+          margin: EdgeInsets.only(top: 30),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Create your account',
+                style: primaryTextStyle.copyWith(
+                  fontSize: 24,
+                  fontWeight: semiBold,
+                ),
+              ),
+              SizedBox(
+                height: 2,
+              ),
+              Text(
+                'Register and Enjoy our App',
+                style: secondaryTextStyle.copyWith(
+                  fontWeight: light,
+                ),
+              ),
+            ],
+          ),
+        );
+      }
+
       Widget emailInput(){
         return Container(
-          margin: EdgeInsets.only( top: 20),
+          margin: EdgeInsets.only( top: 10),
           child: Column (
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -80,13 +80,6 @@ class SignInPage extends StatelessWidget{
                 child : Center(
                   child : Row(
                     children : [
-                      Image.asset(
-                        'assets/Logo_Email.png',
-                        width: 17,
-                      ),
-                      SizedBox(
-                        width: 16,
-                      ),
                       Expanded(
                         child: TextFormField(
                           decoration: InputDecoration.collapsed(
@@ -106,9 +99,105 @@ class SignInPage extends StatelessWidget{
         );
       }
 
+      Widget universitydInput(){
+        return Container(
+          margin: EdgeInsets.only( top: 10),
+          child: Column (
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('University', style: secondaryTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: medium,
+              ),
+              ),
+              SizedBox(
+                height: 12,
+              ),
+              Container(
+                height: 50,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 16,
+                ),
+                decoration: BoxDecoration(
+                  color: backgroundColor1,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    width: 1,
+                  ),
+                ),
+                child : Center(
+                  child : Row(
+                    children : [
+                      Expanded(
+                        child: TextFormField(
+                          decoration: InputDecoration.collapsed(
+                            hintText: 'Your University',
+                            hintStyle: secondaryTextStyle.copyWith(
+                              // fontWeight: light,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      }
+
+      Widget fullNameInput(){
+        return Container(
+          margin: EdgeInsets.only( top: 10),
+          child: Column (
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Full Name', style: secondaryTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: medium,
+              ),
+              ),
+              SizedBox(
+                height: 12,
+              ),
+              Container(
+                height: 50,
+                padding: EdgeInsets.symmetric(
+                  horizontal: 16,
+                ),
+                decoration: BoxDecoration(
+                  color: backgroundColor1,
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    width: 1,
+                  ),
+                ),
+                child : Center(
+                  child : Row(
+                    children : [
+                      Expanded(
+                        child: TextFormField(
+                          decoration: InputDecoration.collapsed(
+                            hintText: 'Your Full Name',
+                            hintStyle: secondaryTextStyle.copyWith(
+                              // fontWeight: light,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      }
+
       Widget passwordInput(){
         return Container(
-          margin: EdgeInsets.only( top: 20),
+          margin: EdgeInsets.only( top: 10),
           child: Column (
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -135,13 +224,6 @@ class SignInPage extends StatelessWidget{
                 child : Center(
                   child : Row(
                     children : [
-                      Image.asset(
-                        'assets/Logo_Password.png',
-                        width: 17,
-                      ),
-                      SizedBox(
-                        width: 16,
-                      ),
                       Expanded(
                         child: TextFormField(
                           // for hide password
@@ -170,17 +252,17 @@ class SignInPage extends StatelessWidget{
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                'Don\'t have an account? ',
+                'Already have an account? ',
                 style: secondaryTextStyle.copyWith(
                   fontSize: 12,
                 ),
                 ),
               GestureDetector(
                 onTap: (){
-                  Navigator.pushNamed(context, '/sign-up');
+                  Navigator.pushNamed(context, '/sign-in');
                 },
                 child: Text( 
-                  'Sign Up',
+                  'Sign In',
                   style: dateTextStyle.copyWith(
                     fontSize: 12,
                     fontWeight: medium,
@@ -192,7 +274,7 @@ class SignInPage extends StatelessWidget{
         );
       }
 
-      Widget signInButton(){
+      Widget signUpButton(){
         return Container(
           height: 50,
           width: double.infinity,
@@ -206,7 +288,7 @@ class SignInPage extends StatelessWidget{
               ),
             ),
             child: Text(
-              'Sign In',
+              'Sign Up',
               style: buttonTextStyle.copyWith(
                 fontSize: 16,
                 fontWeight: medium,
@@ -230,8 +312,10 @@ class SignInPage extends StatelessWidget{
               header(),
               Logo(),
               emailInput(),
+              fullNameInput(),              
+              universitydInput(),
               passwordInput(),
-              signInButton(),
+              signUpButton(),
               Spacer(),
               footer(),
             ],
